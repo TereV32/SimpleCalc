@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container-fluid" style="background-color: #06050a; height: 100vh;">
+        <div class="container text-center position-absolute top-50 start-50 translate-middle p-4 rounded-4"
+            style="background-color: #232322; width: 333px;">
+            <div class="row" style="height: 90px;">
+                <div class="col m-2 rounded-4" style="background-color: #D9D9D9;">
+                    <p id="userInput"></p>
+                </div>
+            </div>
+            <div class="row" style="width: auto; height: 82px;">
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" id="clear" style="height: 100%;" onclick="clearResult()">
+                        <p class="mb-0">AC</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" id="" style="height: 100%;" onclick="appendOperator('changeSign')">
+                        <p class="mb-0">+/-</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" id="percent" style="height: 100%;" onclick="appendOperator('%')">
+                        <p class="mb-0">&percnt;</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn" id="divide" style="height: 100%;" onclick="appendOperator('/')">
+                        <p class="mb-0">&divide;</p>
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="height: 82px;">
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="7" style="height: 100%;" onclick="appendNumber(7)">
+                        <p class="mb-0">7</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="8" style="height: 100%;" onclick="appendNumber(8)">
+                        <p class="mb-0">8</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="9" style="height: 100%;" onclick="appendNumber(9)">
+                        <p class="mb-0">9</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" vlaue="multiply" style="height: 100%;" onclick="appendOperator('x')">
+                        <p class="mb-0">&times;</p>
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="height: 82px;">
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="4" style="height: 100%;" onclick="appendNumber(4)">
+                        <p class="mb-0">4</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="5" style="height: 100%;" onclick="appendNumber(5)">
+                        <p class="mb-0">5</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="6" style="height: 100%;" onclick="appendNumber(6)">
+                        <p class="mb-0">6</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="minus" style="height: 100%;"
+                        onclick="appendOperator('-')">
+                        <p class="mb-0">&minus;</p>
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="height: 82px;">
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="1" style="height: 100%;" onclick="appendNumber(1)">
+                        <p class="mb-0">1</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="2" style="height: 100%;" onclick="appendNumber(2)">
+                        <p class="mb-0">2</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="3" style="height: 100%;" onclick="appendNumber(3)">
+                        <p class="mb-0">3</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #D9D9D9; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" value="plus" style="height: 100%;"
+                        onclick="appendOperator('+')">
+                        <p class="mb-0">&plus;</p>
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="height: 82px;">
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 140px; height: 60px;">
+                    <button type="button" class="btn w-100" style="height: 100%;" onclick="appendNumber(0)">
+                        <p class="mb-0">0</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #C3CCA3; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" style="height: 100%;" onclick="appendNumber('.')">
+                        <p class="mb-0">.</p>
+                    </button>
+                </div>
+                <div class="p-2 col-2 m-2 rounded-4" style="background-color: #AA9764; width: 60px; height: 60px;">
+                    <button type="button" class="btn w-100" style="height: 100%;" onclick="calculate()">
+                        <p class="mb-0">&equals;</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="calc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
